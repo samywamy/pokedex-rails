@@ -1,0 +1,25 @@
+<h1>Pokedex</h1>
+
+<%= link_to 'Make a Pokemon', new_pokemon_path %>
+
+<br><br>
+
+<table>
+  <tr>
+    <th>Pokemon</th>
+    <th>Nom Nom Nom</th>
+    <th></th>
+  </tr>
+
+  <% @pokemons.each do |pokemon| %>
+    <tr>
+      <td><%= pokemon.name %></td>
+      <td><img src="<%= pokemon.img %>" /></td>
+      <td><%= link_to 'Show', pokemon_path(pokemon) %></td>
+      <td><%= link_to 'Edit', edit_pokemon_path(pokemon) %></td>
+      <td><%= link_to 'Destroy', pokemon_path(pokemon),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
